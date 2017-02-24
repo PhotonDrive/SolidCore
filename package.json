@@ -1,0 +1,7 @@
+{
+  "name": "SolidCore",
+  "description": "Convert complex fixed-width file formats to complex target file formats such as JSON, XML, etc.",
+  "version": "0.0.1",
+  "devDependencies": {
+  }
+}
