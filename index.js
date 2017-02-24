@@ -17,13 +17,13 @@ if (!!argv.specificationFile && fs.existsSync(argv.specificationFile)) {
     safe = false;
 }
 
-if (!!argv.inputFile && fs.existsSync(argv.inputFile)) {
+if (!!argv.inputFile && fs.existsSync(argv.inputFile) && safe) {
     source = fs.createReadStream(argv.inputFile);
 } else {
     console.log('Invalid argument, Missing or Bad inputFile!');
     safe = false;
 }
-if (!!argv.outputFile) {
+if (!!argv.outputFile && safe) {
     target = fs.createWriteStream(argv.outputFile);
 } else {
     console.log('Invalid argument, Missing outputFile parameter or Output File already exists!');
