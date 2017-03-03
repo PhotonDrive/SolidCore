@@ -2,10 +2,10 @@
 const fs = require('fs');
 const argv = require('minimist')(process.argv.slice(2));
 const recordFactory = require('./lib/record');
-const documentFactory = require('./lib/document');
 const objectFactory = require('./lib/object');
 const xmlFactory = require('./lib/xml');
 const xsltFactory = require('./lib/xslt');
+var documentFactory = require('./lib/document');
 
 var safe = true;
 var source, target, specifications = {};
@@ -31,6 +31,10 @@ if (!!argv.outputFile && safe) {
 }
 
 if (safe) {
+    if (!!specifications.documentSource) {
+        console.dir('Found custom document specifications: ' + specifications.documentSource);
+        documentFactory = require(specifications.documentSource);
+    }
     source.pipe(recordFactory({objectMode: false}, specifications.sourceMap))
     .pipe(documentFactory({objectMode: true}, specifications.documentMap))
     .pipe(objectFactory({objectMode: true}, specifications.targetMap))

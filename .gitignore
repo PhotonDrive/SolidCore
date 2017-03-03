@@ -45,3 +45,5 @@ samples
 # specs
 specs
 xml
+
+.eslintignore
