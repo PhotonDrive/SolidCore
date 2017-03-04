@@ -5,7 +5,7 @@ const recordFactory = require('./lib/record');
 const objectFactory = require('./lib/object');
 const xmlFactory = require('./lib/xml');
 const xsltFactory = require('./lib/xslt');
-const finalizer = require('./lib/finalizer');
+const parentFactory = require('./lib/parent');
 var documentFactory = require('./lib/document');
 
 var safe = true;
@@ -40,8 +40,8 @@ if (safe) {
     .pipe(documentFactory({objectMode: true}, specifications.documentMap))
     .pipe(objectFactory({objectMode: true}, specifications.targetMap))
     .pipe(xmlFactory({objectMode: true}, specifications.targetMap.TargetElement))
-    .pipe(xsltFactory({objectMode: false}, specifications.transformMap))
-    .pipe(finalizer({objectMode: false}, "<specifications>", "</specifications>"))
+    .pipe(parentFactory({objectMode: false}, specifications.parentMap))
+    //.pipe(xsltFactory({objectMode: false}, specifications.transformMap))
     .pipe(target);
 } else {
     console.log('Usage: ');
