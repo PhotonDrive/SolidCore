@@ -8,8 +8,8 @@ Convert complex fixed-width file to complex XML or JSON file.
 5. Make sure that all dependancies are downloaded
 
 # How to use
-1. Define spefications
+1. Define spefications (coming soon)
 2. Save specifications in a sub folder
-3. Create command (see below)
+3. Create command: 
    node index --inputFile ./path/ascii.file --specificationFile ./path/specs.json --outputFile ./path/output.xml
 4. Execute command
