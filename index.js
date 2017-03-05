@@ -64,7 +64,7 @@ if (!!argv.outputFile && safe) {
 }
 
 if (safe) {
-    console.log('Stage 1 started'.yellow);
+    console.log('Stage 1 started Input File: '.yellow + argv.inputFile.blue + ' Specification File: '.yellow + specifications.documentSource.blue);
     bar.start(200, 0);
     if (!!specifications.documentSource) {
         bar.update(30);
